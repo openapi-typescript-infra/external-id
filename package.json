@@ -13,6 +13,10 @@
     "./cli": {
       "types": "./build/cli.d.ts",
       "default": "./build/cli.js"
+    },
+    "./expander": {
+      "types": "./build/expander.d.ts",
+      "default": "./build/expander.js"
     }
   },
   "author": "Developers <developers@pyralis.com>",
