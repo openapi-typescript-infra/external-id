@@ -2,8 +2,19 @@
   "name": "@openapi-typescript-infra/external-id",
   "version": "0.0.0",
   "description": "A minimal dependency utility to manage prefixed short UUIDs for your organization",
+  "type": "module",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "./cli": {
+      "types": "./build/cli.d.ts",
+      "default": "./build/cli.js"
+    }
+  },
   "author": "Developers <developers@pyralis.com>",
   "license": "MIT",
   "packageManager": "yarn@3.8.7",

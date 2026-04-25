@@ -46,6 +46,34 @@ export const {
 export type ExternalIDType = ExternalIDTypeFor<typeof ExternalIDType>;
 ```
 
+## CLI
+
+This package does not ship a global CLI because only the downstream package knows its valid
+ExternalID types. To create one in a downstream package, add a tiny CLI entrypoint:
+
+```typescript
+#!/usr/bin/env node
+import * as externalID from './index';
+import { runExternalIDCli } from '@openapi-typescript-infra/external-id/cli';
+
+await runExternalIDCli(externalID);
+```
+
+Or create the CLI directly from a registry:
+
+```typescript
+#!/usr/bin/env node
+import { runExternalIDCliFromRegistry } from '@openapi-typescript-infra/external-id/cli';
+
+await runExternalIDCliFromRegistry({
+  User: 'u',
+  Group: 'g',
+});
+```
+
+The generated CLI supports encoding UUIDs, decoding ExternalIDs or bare short UUIDs, reading IDs
+from stdin, `--type`/`-t`, `--list-types`, `--quiet`, and `--help`.
+
 ## Guidance
 
 External IDs are useful when the meaning of the identifier is not clear from its context.
