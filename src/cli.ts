@@ -7,7 +7,7 @@ import {
   type ExternalIDModule,
   type ExternalIDRegistry,
   type ExternalIDTypeFor,
-} from './codec';
+} from './codec.js';
 
 const uuidRegex = /^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$/i;
 

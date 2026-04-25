@@ -2,8 +2,8 @@ import { randomUUID } from 'crypto';
 
 import { describe, expect, test } from 'vitest';
 
-import { externalIds } from './codec';
-import { runExternalIDCli, runExternalIDCliFromRegistry } from './cli';
+import { externalIds } from './codec.js';
+import { runExternalIDCli, runExternalIDCliFromRegistry } from './cli.js';
 
 const externalIDModule = externalIds({
   Consumer: 'c',

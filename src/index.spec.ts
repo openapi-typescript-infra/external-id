@@ -2,7 +2,7 @@ import { randomUUID } from 'crypto';
 
 import { describe, expect, test } from 'vitest';
 
-import { externalIds, type ExternalIDTypeFor } from './index.ts';
+import { externalIds, type ExternalIDTypeFor } from './index.js';
 
 const { ExternalIDType, fromExternalID, parseExternalID, stringToExternalID, toExternalID } =
   externalIds({

@@ -1,4 +1,4 @@
-import { shortener } from './short-uuid';
+import { shortener } from './short-uuid.js';
 
 export type ExternalIDRegistry = Readonly<Record<string, string>>;
 export type ExternalIDTypeFor<Registry extends ExternalIDRegistry> = Registry[keyof Registry] &
