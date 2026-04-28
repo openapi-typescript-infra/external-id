@@ -54,6 +54,10 @@ export interface ExternalIDModule<Registry extends ExternalIDRegistry> {
     id: string,
     expected?: ExternalIDTypeFor<Registry> | ExternalIDTypeFor<Registry>[],
   ) => string | undefined;
+  getUuidFromStringOrThrow: (
+    id: string,
+    expected?: ExternalIDTypeFor<Registry> | ExternalIDTypeFor<Registry>[],
+  ) => string;
   toBareShortUuid: (uuid: string) => string;
   fromBaseShortUuid: (shortId: string) => string;
 }
@@ -134,6 +138,14 @@ export function externalIds<const Registry extends ExternalIDRegistry>(
       : undefined;
   }
 
+  function getUuidFromStringOrThrow(id: string, expected?: IDType | IDType[]) {
+    const uuid = getUuidFromString(id, expected);
+    if (!uuid) {
+      throw new Error(`Invalid external ID: ${id}`);
+    }
+    return uuid;
+  }
+
   return {
     ExternalIDType,
     toExternalID,
@@ -142,6 +154,7 @@ export function externalIds<const Registry extends ExternalIDRegistry>(
     parseExternalID,
     parseUnknownExternalID,
     getUuidFromString,
+    getUuidFromStringOrThrow,
     toBareShortUuid,
     fromBaseShortUuid,
   };
